@@ -86,7 +86,7 @@ app.delete("/product/:id",async(req,res)=>
   }
 })
 
-mongoose.connect('mongodb+srv://ghimiresandesh45:J1DFmAPCN0J8eMjm@testing.lbmj2pf.mongodb.net/nodeapi?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://<db username>:<dbpass>@testing.lbmj2pf.mongodb.net/nodeapi?retryWrites=true&w=majority')
   .then(() => {
     console.log('Connected!')
     app.listen(3000,() => {
