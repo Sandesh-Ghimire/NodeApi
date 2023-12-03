@@ -1,6 +1,7 @@
-const Product= require('../models/productModels')
+
 //get all products from db
 const asyncHandler = require('express-async-handler')
+const Product= require('../models/productModels')
 //get all products
 const getProducts = asyncHandler(async(req,res)=>
 {
@@ -29,17 +30,21 @@ const deleteProduct=asyncHandler(async(req,res)=>
     res.status(500).json({message: `hello not deleted`})
   }
 })
-const createProduct=asyncHandler(async(req,res)=>
-{
+
+// create a product
+const createProduct = asyncHandler(async(req, res) => {
   try {
-        const product= await Product.create(req.body);
-        res.status(200).json(product);
+    console.log(req.body)
+      const product = await Product.create(req.body)
+      res.status(200).json(product);
+      console.log(req.body)
+
   } catch (error) {
-    // console.log(error.message)
-   res.status(500).json({message: error.message})
+      res.status(500);
+      throw new Error(error.message);
   }
-  //  res.send(req.body)
 })
+
 
 const updateProduct=asyncHandler(async(req,res)=>
 {

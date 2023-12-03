@@ -1,5 +1,5 @@
 const express=require('express');
-const Product=require("../models/productModels")
+// const Product=require('../models/productModels')
 const router = express.Router();
 const {getProducts, updateProduct,createProduct,deleteProduct,getProduct}=require("../controllers/productcontroller")
 
